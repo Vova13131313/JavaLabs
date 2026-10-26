@@ -50,6 +50,12 @@ public class Book {
                 Objects.equals(pages, book.pages);
     }
 
+    // hashCode
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, pages);
+    }
+
     // toString
     @Override
     public String toString() {
