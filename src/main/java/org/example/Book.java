@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Objects;
+
 public class Book {
     private int id;
     private String name;
@@ -35,5 +37,22 @@ public class Book {
 
     public void setPages(int pages) {
         this.pages = pages;
+    }
+
+    // equals
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Objects.equals(id, book.id) &&
+                Objects.equals(name, book.name) &&
+                Objects.equals(pages, book.pages);
+    }
+
+    // toString
+    @Override
+    public String toString() {
+        return "Book{id=" + id + ", name=" + name + ", pages=" + pages + "}";
     }
 }
