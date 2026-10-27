@@ -17,10 +17,13 @@ public class Main {
             System.out.print("Книга " + (i + 1) + " name: ");
             String name = scanner.nextLine();
 
+            System.out.print("Книга " + (i + 1) + " author: ");
+            String author = scanner.nextLine();
+
             System.out.print("Книга " + (i + 1) + " pages: ");
             int pages = scanner.nextInt();
 
-            books[i] = new Book(id, name, pages);
+            books[i] = new Book(id, name, author, pages);
         }
 
         // Тестування toString

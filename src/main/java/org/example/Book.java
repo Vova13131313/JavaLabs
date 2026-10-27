@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Book {
     private int id;
     private String name;
+    private String author;
     private int pages;
 
     // Конструктор з параметрами
@@ -31,6 +32,14 @@ public class Book {
         this.name = name;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
     public int getPages() {
         return pages;
     }
@@ -47,18 +56,19 @@ public class Book {
         Book book = (Book) o;
         return Objects.equals(id, book.id) &&
                 Objects.equals(name, book.name) &&
+                Objects.equals(author, book.author) &&
                 Objects.equals(pages, book.pages);
     }
 
     // hashCode
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, pages);
+        return Objects.hash(id, name, author, pages);
     }
 
     // toString
     @Override
     public String toString() {
-        return "Book{id=" + id + ", name=" + name + ", pages=" + pages + "}";
+        return "Book{id=" + id + ", name=" + name + ", author=" + author + ", pages=" + pages + "}";
     }
 }
