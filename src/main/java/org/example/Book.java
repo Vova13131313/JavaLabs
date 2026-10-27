@@ -9,7 +9,7 @@ public class Book {
     private int pages;
 
     // Конструктор з параметрами
-    public Book(int id, String name, int pages) {
+    public Book(int id, String name, String author, int pages) {
         this.id = id;
         this.name = name;
         this.pages = pages;
