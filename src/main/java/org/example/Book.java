@@ -10,10 +10,10 @@ public class Book {
 
     // Конструктор з параметрами
     public Book(int id, String name, String author, int pages) {
-        this.id = id;
-        this.name = name;
-        this.author = author;
-        this.pages = pages;
+        setId(id);
+        setName(name);
+        setAuthor(author);
+        setPages(pages);
     }
 
     // Гетери та сетери
