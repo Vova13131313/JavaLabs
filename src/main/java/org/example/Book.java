@@ -22,6 +22,9 @@ public class Book {
     }
 
     public void setId(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("ID має бути більше 0");
+        }
         this.id = id;
     }
 
@@ -30,6 +33,9 @@ public class Book {
     }
 
     public void setName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Назва книги не може бути порожньою");
+        }
         this.name = name;
     }
 
@@ -38,6 +44,9 @@ public class Book {
     }
 
     public void setAuthor(String author) {
+        if (author == null || author.trim().isEmpty()) {
+            throw new IllegalArgumentException("Ім'я автора не може бути порожньою");
+        }
         this.author = author;
     }
 
@@ -46,6 +55,9 @@ public class Book {
     }
 
     public void setPages(int pages) {
+        if (pages <= 0) {
+            throw new IllegalArgumentException("Кількість сторінок має бути більше 0");
+        }
         this.pages = pages;
     }
 
