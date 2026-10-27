@@ -3,6 +3,38 @@ package org.example;
 import java.util.Scanner;
 
 public class Main {
+    private static int readValidInt(Scanner scanner, String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            String input = scanner.next().trim();
+            scanner.nextLine();
+
+            try {
+                int value = Integer.parseInt(input);
+                if (value <= 0) {
+                    System.out.println("Число повинно бути більше 0. Спробуйте ще раз");
+                    continue;
+                }
+                return value;
+            } catch (NumberFormatException e) {
+                System.out.println("Введено нечислове значення. Спробуйте ще раз");
+            }
+        }
+    }
+
+    private static String readValidString(Scanner scanner, String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            String line = scanner.nextLine().trim();
+
+            if (line.isEmpty()) {
+                System.out.println("Текст не може бути порожнім. Спробуйте ще раз");
+                continue;
+            }
+            return line;
+        }
+    }
+
     public static void main(String[] args) {
         // Створення масиву
         Book[] books = new Book[5];
@@ -10,18 +42,10 @@ public class Main {
 
         // Заповнення масиву
         for (int i = 0; i < books.length; i++) {
-            System.out.print("\nКнига " + (i + 1) + " id: ");
-            int id = scanner.nextInt();
-            scanner.nextLine();
-
-            System.out.print("Книга " + (i + 1) + " name: ");
-            String name = scanner.nextLine();
-
-            System.out.print("Книга " + (i + 1) + " author: ");
-            String author = scanner.nextLine();
-
-            System.out.print("Книга " + (i + 1) + " pages: ");
-            int pages = scanner.nextInt();
+            int id = readValidInt(scanner, "\nКнига " + (i + 1) + " id: ");
+            String name = readValidString(scanner, "Книга " + (i + 1) + " name: ");
+            String author = readValidString(scanner, "Книга " + (i + 1) + " author: ");
+            int pages = readValidInt(scanner, "Книга " + (i + 1) + " pages: ");
 
             books[i] = new Book(id, name, author, pages);
         }
